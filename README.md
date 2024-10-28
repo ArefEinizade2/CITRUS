@@ -13,4 +13,4 @@ Firstly, several needed python packages are needed to be installed, such as torc
     
     • For generating the results on NOAA dataset with number of horizons x, please run “NOAA_prediction.py” in the “NOAA” folder.
 
-    **A more organized version of the current implementation codes will be provided soon.**
+**A more organized version of the current implementation codes will be provided soon.**
