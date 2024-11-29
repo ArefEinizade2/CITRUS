@@ -78,14 +78,20 @@ python3 CITRUS_demo.py
 python3 OverSmoothing_Analysis.py
 ```
 
-- For analyzing the stability aspect of the CITRUS, in the Stability_Analysis folder, run **Molene_prediction.ipynb** or:
+- For analyzing the stability aspect of the CITRUS, in the Stability_Analysis folder, run **Stability_Analysis.ipynb**  and **Stability_Analysis_Plot.ipynb** or:
+```bash 
+python3 Stability_Analysis.py
+python3 Stability_Analysis_Plot.py
+```
+
+- For generating the results on the MOLENE dataset, in the molene folder, run **Molene_prediction.ipynb** or:
 ```bash 
 python3 Molene_prediction.py
 ```
 
-- For generating the results on the MOLENE dataset, in the molene folder, run **Oversmoothing_Analysis.ipynb** or:
+- For generating the results on the MetrLA dataset, in the MetrLA_PemsBay folder, run **MetrLA_Github.ipynb** or:
 ```bash 
-python3 OverSmoothing_Analysis.py
+python3 MetrLA_Github.py
 ```
 
 ## Citation
