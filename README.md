@@ -15,7 +15,6 @@ This is the repository of the paper "Continuous Product Graph Neural Networks" p
     - [Clone this Repository](#clone-this-repository)
     - [Prerequisites](#prerequisites)
     - [Run the Code](#run-the-code)
-    - [Add a New Model](#add-a-new-model)
   - [Citation](#citation)
   - [Acknowledgements](#acknowledgements)
   - [Contact](#contact)
