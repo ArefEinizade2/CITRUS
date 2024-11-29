@@ -104,5 +104,7 @@ url={https://openreview.net/forum?id=XRNN9i1xpi}
 
 ## Acknowledgements
 This work was supported by the center [Hi! PARIS](https://www.hi-paris.fr/) and ANR (French National Research Agency) under the JCJC project GraphIA (ANR-20-CE23-0009-01).
+
+- Some segments of the codes heavily rely on the implementation codes of the paper [Graph-time convolutional neural networks: Architecture and theoretical analysis](https://doi.org/10.1109/TPAMI.2023.3311912) and this [Github repo](https://github.com/maysambehmanesh/TIDE).
 ## Contact
 For any query, please contact me at: **aref dot einizade at telecom-paris dot fr**
