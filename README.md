@@ -93,7 +93,7 @@ python3 Molene_prediction.py
 python3 MetrLA_Github.py
 ```
 
-*Remark: Note that the proposed CITRUS module has been used in different architectures across synthetic and real-world datasets depending on their downstream learning tasks.*
+- *Remark: Note that the proposed CITRUS module has been used in different architectures across synthetic and real-world datasets depending on their downstream learning tasks.*
 
 ## Citation
 If you use our code, please consider citing our work:
