@@ -5,12 +5,6 @@ aiohttp==3.11.8
 aioitertools
 aiosignal
 alabaster
-anaconda-anon-usage
-anaconda-catalogs
-anaconda-client
-anaconda-cloud-auth
-anaconda-navigator
-anaconda-project
 annotated-types
 anyio
 appdirs==1.4.4
@@ -54,7 +48,7 @@ charset-normalizer
 clarabel==0.6.0
 click
 cloudpickle
-clyent==1.2.2
+clyent==1.2.1
 colorcet
 comm
 conda

@@ -1,5 +1,7 @@
-
 # Ignore Python bytecode and cache directories
 __pycache__/
 *.py[cod]
 *.so
+
+# Ignore data folder
+data/
