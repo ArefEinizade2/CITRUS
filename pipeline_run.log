@@ -1,0 +1,127 @@
+Searching for Gene Expression Quantification files...
+Found 100 files.
+Downloading file 1/100: e6cbdcab-7fd1-43a6-be43-68b6a0fb4fe9
+  Saved to data/TCGA/e548b6da-7025-48ef-bac6-50dcf66abe71.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 2/100: 9415696a-44d9-477f-aba3-0a30ded48778
+  Saved to data/TCGA/3c3c4741-8eda-46fe-8d36-2cd683f4a987.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 3/100: ec67e25e-9cc6-45a7-a7c0-8dc778ae14c1
+  Saved to data/TCGA/a068f661-e689-4e30-9572-3103039981aa.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 4/100: 61f32a8d-4649-4ea8-8374-00ab281464bf
+  Saved to data/TCGA/0d9db3d9-8f0a-41f8-bf2b-5de447d676b8.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 5/100: 09a491b5-1bfb-47d9-963f-69f6c7e6c1e5
+  Saved to data/TCGA/bae57be0-48af-438d-88fa-cbaaf16b3d33.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 6/100: f8e5691a-e24d-4dba-873e-9ffa3ca12bb6
+  Saved to data/TCGA/80de2366-cd3c-4b51-9957-06ac3e152cf0.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 7/100: e52108ad-c4ab-4ab4-8636-caaeaae7ea62
+  Saved to data/TCGA/b02ec16a-9dff-4b98-9960-73175454082a.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 8/100: 4af55932-ab7a-41e5-aa7f-fb16ab18c629
+  Saved to data/TCGA/668e1e67-cc4f-40fd-b921-23aec5078635.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 9/100: 1d0878a6-5c7c-40b9-8eab-64981d783b71
+  Saved to data/TCGA/44df0b54-867f-4aef-8769-5d3fa8887b94.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 10/100: b3b9ae66-e8d1-4a32-a2a9-46931b753527
+  Saved to data/TCGA/e627254f-65f9-4939-add4-bb77bfd92e16.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 11/100: da29bf10-4629-4234-8e49-43a4513fe579
+  Saved to data/TCGA/7f2a1bd4-9b71-4e12-ae92-6aaaf247ebca.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 12/100: 52151eca-7819-496e-bf31-4875b68d429d
+  Saved to data/TCGA/34478743-530d-4d71-a124-90ad54ded5c1.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 13/100: 5223fb98-dd63-4c20-a7c0-02e0b13ccb33
+  Saved to data/TCGA/7b7c91b5-0358-4d09-af89-26a791d7a23a.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 14/100: 4bf6ebc1-575d-49e4-9f66-068b537373c0
+  Saved to data/TCGA/767425eb-9fa2-45bc-a3ad-ca8dbafd373f.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 15/100: 3e5dce7b-3f1e-4b43-b83e-8c0fc654e9c4
+  Saved to data/TCGA/1b392450-2b27-4dce-9205-7de33a64ba42.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 16/100: cf801232-8aa2-4ede-80b0-8c5b9876941b
+  Saved to data/TCGA/c861f2ac-61fd-45cc-9e14-f775f9eed494.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 17/100: a9b5ab37-10c2-4fb6-9c4e-3fcd5ea26526
+  Saved to data/TCGA/dbc4f72a-3937-4092-92b8-d52c6b0c3340.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 18/100: 41a87746-ec8e-47e3-986c-d1a119e7c96b
+  Saved to data/TCGA/628501d9-94e5-440e-b39f-df0e3ea09986.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 19/100: cee943a8-ea26-4b2f-b8a4-66300ccacfb5
+  Saved to data/TCGA/7eb5f037-355b-4a38-b22b-a5e1f41ff1e9.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 20/100: 26caf8b1-0202-4656-9bb9-4a80ffc94118
+  Saved to data/TCGA/1516c4ec-98c0-41dc-9ad1-86cc05305fc1.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 21/100: d9ea5bde-aa1a-4210-976f-b2f67c6d0191
+  Saved to data/TCGA/5b858b45-79a5-4857-b59e-8c56a8b04320.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 22/100: 2081a155-9d2d-41f6-b243-68a12e9b342a
+  Saved to data/TCGA/62ca3ce8-77f9-4e02-ace4-af79519b53fd.rna_seq.augmented_star_gene_counts.tsv
+Downloading file 23/100: 95f4620f-f9b0-4533-bb13-f412d774244a
+Traceback (most recent call last):
+  File "/home/infres/mbraham-22/CITRUS-Graph_ML/download_tcga.py", line 113, in <module>
+    download_and_process_data() 
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/CITRUS-Graph_ML/download_tcga.py", line 97, in download_and_process_data
+    output_file = get_file_data(file_id, OUTPUT_DIR)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/CITRUS-Graph_ML/download_tcga.py", line 21, in get_file_data
+    response = requests.get(data_endpt, headers={"Content-Type": "application/json"})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/site-packages/urllib3/connection.py", line 507, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/http/client.py", line 1423, in getresponse
+    response.begin()
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/ssl.py", line 1252, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/ssl.py", line 1104, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+================================================================================
+  Downloading TCGA data
+================================================================================
+Traceback (most recent call last):
+  File "/home/infres/mbraham-22/CITRUS-Graph_ML/run_tcga_pipeline.py", line 59, in <module>
+    main() 
+    ^^^^^^
+  File "/home/infres/mbraham-22/CITRUS-Graph_ML/run_tcga_pipeline.py", line 36, in main
+    run_command("python download_tcga.py", "Downloading TCGA data")
+  File "/home/infres/mbraham-22/CITRUS-Graph_ML/run_tcga_pipeline.py", line 13, in run_command
+    result = subprocess.run(command, shell=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/subprocess.py", line 1201, in communicate
+    self.wait()
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/subprocess.py", line 2051, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ^^^^^^^^^^^^^^^^^
+  File "/home/infres/mbraham-22/miniconda3/lib/python3.12/subprocess.py", line 2009, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

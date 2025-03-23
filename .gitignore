@@ -1,7 +1,9 @@
-
 # Ignore Python bytecode and cache directories
 __pycache__/
 *.py[cod]
 *.so
 *runs*
 MetrLA_PemsBay/MetrLA/
+
+# Ignore data folder
+data/

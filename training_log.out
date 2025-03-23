@@ -1,0 +1,44 @@
+/home/infres/mbraham-22/CITRUS-Graph_ML/train_tcga_citrus.py:123: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  data = torch.load(data_file)
+Using GPU: Tesla V100S-PCIE-32GB
+X shape: torch.Size([5, 5000])
+Y shape: torch.Size([5, 2])
+Training samples: 3
+Validation samples: 1
+Test samples: 1
+
+Training GCN model...
+GCN training completed in 0.02 minutes.
+Best validation accuracy: 0.0000 at epoch 0
+
+Training MLP model...
+Epoch 1: MLP - Train Loss: 0.6958, Val Loss: 0.2042, Test Loss: 0.3396
+          Train Acc: 1.0000, Val Acc: 1.0000, Test Acc: 1.0000
+          Test Precision: 1.0000, Test Recall: 1.0000, Test F1: 1.0000, Test AUC: 0.5000
+MLP training completed in 0.01 minutes.
+Best validation accuracy: 1.0000 at epoch 1
+
+----- Final Performance Comparison -----
+GCN:
+  Test Accuracy: 0.0000
+  Test AUC: 0.5000
+MLP:
+  Test Accuracy: 1.0000
+  Test AUC: 0.5000
+Skipping download step...
+Skipping preprocessing step...
+
+================================================================================
+  Training and evaluating GCN and MLP models
+================================================================================
+
+Completed in 0.15 minutes
+
+================================================================================
+  Pipeline completed successfully!
+================================================================================
+
+Results are available in data/TCGA/results/
+- Model performance metrics: results.json
+- Training curves: training_results.png
+- Best models saved as: best_gcn_model.pt, best_mlp_model.pt
