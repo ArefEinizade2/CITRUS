@@ -3,3 +3,5 @@
 __pycache__/
 *.py[cod]
 *.so
+*runs*
+MetrLA_PemsBay/MetrLA/
