@@ -4,6 +4,13 @@ __pycache__/
 *.so
 *runs*
 MetrLA_PemsBay/MetrLA/
-
+MetrLA_PemsBay/PemsBay/
 # Ignore data folder
 data/
+FINAL*
+*MetrLA_Results*
+*BayResults*
+wandb/
+MetrLA/
+PemsBay/
+*Results*
