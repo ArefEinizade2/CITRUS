@@ -7,7 +7,7 @@ t = time.time()
 #%%
 M = 6
 M_hat = M
-n_epochs = 3 # was 300
+n_epochs = 300 # was 300
 val_len = 0.1
 test_len = 0.1
 lr = 1e-2
@@ -59,7 +59,7 @@ shutil.copy2(script_path, destination_path)
 from layers import CPGNN_ST, CPGNN_ST_v2, CPGNN_ST_v3, CITRUS, SGPModel
 import networkx as nx
 from Utilsss import get_evcs_evals
-from pytorch_lightning.loggers import TensorBoardLogger
+from pytorch_lightning.loggers import TensorBoardLogger, WandbLogger
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint, ProgressBar
 
@@ -277,7 +277,8 @@ predictor_CGP_GNN = Predictor(
     metrics=metrics,
 # metrics to be logged during train/val/test
 )
-logger_CGP_GNN = TensorBoardLogger(save_dir="FINAL_PemsBay_M6_H3", name="FINAL_PemsBay_M6_H3_compare", version=0)
+logger_CGP_GNN = TensorBoardLogger(save_dir="FINAL_PemsBay_M6_H3", name="FINAL_PemsBay_M6_H3", version=0)
+wandb_logger = WandbLogger(project="CITRUS_continuous_graph_product", name="PemsBay", version=0)
 
 checkpoint_callback_CGPGNN = ModelCheckpoint(
     dirpath='FINAL_PemsBay_M6_H3',
@@ -286,14 +287,15 @@ checkpoint_callback_CGPGNN = ModelCheckpoint(
     mode='min',
 )
 
-trainer_CGP_GNN = pl.Trainer(max_epochs=n_epochs,
-                      logger=logger_CGP_GNN,
-                      # Updated to use GPU 1 explicitly
-                      accelerator='gpu',
-                      devices=[1], 
-#                      limit_train_batches=train_batches,  # end an epoch after 100 updates
-                      callbacks=[checkpoint_callback_CGPGNN],
-                      enable_progress_bar=enable_progress_bar)
+trainer_CGP_GNN = pl.Trainer(
+    max_epochs=n_epochs,
+    logger=[logger_CGP_GNN, wandb_logger],
+    accelerator='gpu',
+    devices=[1], 
+#    limit_train_batches=train_batches,  # end an epoch after 100 updates
+    callbacks=[checkpoint_callback_CGPGNN],
+    enable_progress_bar=enable_progress_bar
+)
 
 t_CGPGNN = time.time()
 trainer_CGP_GNN.fit(predictor_CGP_GNN, datamodule=dm)
@@ -306,62 +308,6 @@ predictor_CGP_GNN.freeze()
 
 
 CGP_GNN_results = trainer_CGP_GNN.test(predictor_CGP_GNN, datamodule=dm);
-
-
-#%% Run GRUGCNModel for comparison:
-from tsl.nn.models import GRUGCNModel  # add GRUGCNModel import
-
-# Instantiate GRUGCNModel with similar dimensions
-GRUGCN = GRUGCNModel(
-    input_size=input_size,
-    n_nodes=n_nodes,
-    horizon=horizon,
-    hidden_size=hidden_size,
-    rnn_layers=rnn_layers,
-    dropout=False
-)
-print(GRUGCN)
-print_model_size(GRUGCN)
-
-loss_fn_gru = MaskedMAE()
-metrics_gru = {'mse': MaskedMSE(),
-               'mae': MaskedMAE(),
-               'mape': MaskedMAPE()}
-
-predictor_GRUGCN = Predictor(
-    model=GRUGCN,
-    optim_class=torch.optim.Adam,
-    optim_kwargs={'lr': lr},
-    loss_fn=loss_fn_gru,
-    metrics=metrics_gru,
-)
-
-checkpoint_callback_GRUGCN = ModelCheckpoint(
-    dirpath='FINAL_PemsBay_GRUGCN',
-    save_top_k=1,
-    monitor='val_mae',
-    mode='min',
-)
-
-trainer_GRUGCN = pl.Trainer(
-    max_epochs=n_epochs,
-    logger=logger_CGP_GNN,  # reusing same WandbLogger
-    accelerator='gpu',
-    devices=[1],
-    callbacks=[checkpoint_callback_GRUGCN],
-    enable_progress_bar=enable_progress_bar
-)
-
-t_GRUGCN = time.time()
-trainer_GRUGCN.fit(predictor_GRUGCN, datamodule=dm)
-elapsed_gru = time.time() - t_GRUGCN
-print('>>>>>>>>>>>>>>>>>>>> GRUGCN training time, Elapsed: %s' % round(elapsed_gru/60,2), ' minutes')
-
-predictor_GRUGCN.load_model(checkpoint_callback_GRUGCN.best_model_path)
-predictor_GRUGCN.freeze()
-
-GRUGCN_results = trainer_GRUGCN.test(predictor_GRUGCN, datamodule=dm)
-print("GRUGCN results:", GRUGCN_results)
 
 #% Detailed metrics:
 

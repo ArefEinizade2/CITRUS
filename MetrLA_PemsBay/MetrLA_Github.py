@@ -237,7 +237,7 @@ predictor_CGP_GNN = Predictor(
     metrics=metrics,
 # metrics to be logged during train/val/test
 )
-logger_CGP_GNN = WandbLogger(project="FINAL_MetrLA_M6_H3", name="FINAL_MetrLA_M6_H3", version="0")
+logger_CGP_GNN = WandbLogger(project="CITRUS_continuous_graph_product", name="MetrLA", version="0")
 
 checkpoint_callback_CGPGNN = ModelCheckpoint(
     dirpath='FINAL_MetrLA_M6_H3',
