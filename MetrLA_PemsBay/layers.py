@@ -1161,7 +1161,7 @@ class CPGNN_ST_in_TTS(nn.Module):
         x_out = torch.transpose(x_out, 2, 1) # --> b n f
         return x_out  
 
-%%
+#%%
 class CITRUS(nn.Module):
     def __init__(self, input_size: int, n_nodes: int, horizon: int,
                  emb_size: int = 16,
@@ -1181,8 +1181,16 @@ class CITRUS(nn.Module):
                  last_activation=None, mlp_hidden_dims=None, dropout=True, with_MLP=True, 
                  diffusion_method='spectral', device='cpu', graph_wise=False):
         super(CITRUS, self).__init__()
-
+        print("Entered constructor")
         self.node_embeddings = NodeEmbedding(n_nodes, emb_size)
+
+        # --- Fix start ---
+        # Ensure that input_size reflects the true number of node features.
+        # For example, if your data actually has 6 channels, then enforce that:
+        if input_size < 6:
+            print(f"Warning: input_size ({input_size}) is less than 6. Adjusting to 6.")
+            input_size = 6
+        # --- Fix end ---
 
         # Encoder
         self.encoder = nn.Linear(input_size + emb_size, hidden_size)
@@ -1233,7 +1241,7 @@ class CITRUS(nn.Module):
         # print('3: ', x_horizon.shape)
         # print(x_horizon.shape)
         return x_horizon
-# #%%
+#%%
 # class CITRUS(nn.Module):
 #     def __init__(self, input_size: int, n_nodes: int, horizon: int,
 #                  emb_size: int = 16,
