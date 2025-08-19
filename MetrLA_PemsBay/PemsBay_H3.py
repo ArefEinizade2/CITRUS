@@ -7,7 +7,7 @@ t = time.time()
 #%%
 M = 6
 M_hat = M
-n_epochs = 300
+n_epochs = 300 # was 300
 val_len = 0.1
 test_len = 0.1
 lr = 1e-2
@@ -40,7 +40,8 @@ from tsl.engines import Predictor
 os.environ['TORCH'] = torch.__version__
 print(torch.__version__)
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+# Updated to select GPU 1 if available
+device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 print(device)
 
 import shutil
@@ -55,10 +56,10 @@ if not os.path.isdir(destination_path):
 shutil.copy2(script_path, destination_path)
 
 #%%
-from Needed_Functions.layers import CPGNN_ST, CPGNN_ST_v2, CPGNN_ST_v3, CITRUS, SGPModel
+from layers import CPGNN_ST, CPGNN_ST_v2, CPGNN_ST_v3, CITRUS, SGPModel
 import networkx as nx
-from Needed_Functions.Utilsss import get_evcs_evals
-from pytorch_lightning.loggers import TensorBoardLogger
+from Utilsss import get_evcs_evals
+from pytorch_lightning.loggers import TensorBoardLogger, WandbLogger
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint, ProgressBar
 
@@ -153,15 +154,16 @@ a = sample.input.to_dict()
 
 b = sample.target.to_dict()
 
-if sample.has_mask:
-    print(sample.mask)
-else:
-    print("Sample has no mask.")
+# to print the mask
+# if sample.has_mask:
+#     print(sample.mask)
+# else:
+#     print("Sample has no mask.")
 
-if sample.has_transform:
-    print(sample.transform)
-else:
-    print("Sample has no transformation functions.")
+# if sample.has_transform:
+#     print(sample.transform)
+# else:
+#     print("Sample has no transformation functions.")
 #%%
 
 print(sample.pattern)
@@ -192,7 +194,7 @@ dm = SpatioTemporalDataModule(
     batch_size=batch_size,
 )
 
-print(dm)
+# print(dm)
 #%%
 
 dm.setup()
@@ -276,6 +278,7 @@ predictor_CGP_GNN = Predictor(
 # metrics to be logged during train/val/test
 )
 logger_CGP_GNN = TensorBoardLogger(save_dir="FINAL_PemsBay_M6_H3", name="FINAL_PemsBay_M6_H3", version=0)
+wandb_logger = WandbLogger(project="CITRUS_continuous_graph_product", name="PemsBay", version=0)
 
 checkpoint_callback_CGPGNN = ModelCheckpoint(
     dirpath='FINAL_PemsBay_M6_H3',
@@ -284,13 +287,15 @@ checkpoint_callback_CGPGNN = ModelCheckpoint(
     mode='min',
 )
 
-trainer_CGP_GNN = pl.Trainer(max_epochs=n_epochs,
-                      logger=logger_CGP_GNN,
-                      accelerator=device,
-                      devices=1, 
-#                      limit_train_batches=train_batches,  # end an epoch after 100 updates
-                      callbacks=[checkpoint_callback_CGPGNN],
-                      enable_progress_bar=enable_progress_bar)
+trainer_CGP_GNN = pl.Trainer(
+    max_epochs=n_epochs,
+    logger=[logger_CGP_GNN, wandb_logger],
+    accelerator='gpu',
+    devices=[1], 
+#    limit_train_batches=train_batches,  # end an epoch after 100 updates
+    callbacks=[checkpoint_callback_CGPGNN],
+    enable_progress_bar=enable_progress_bar
+)
 
 t_CGPGNN = time.time()
 trainer_CGP_GNN.fit(predictor_CGP_GNN, datamodule=dm)
@@ -304,10 +309,10 @@ predictor_CGP_GNN.freeze()
 
 CGP_GNN_results = trainer_CGP_GNN.test(predictor_CGP_GNN, datamodule=dm);
 
-
 #% Detailed metrics:
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# In the detailed metrics block, update the device selection
+device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 XX = dm.testset
 x_test = XX[:].x
 y_test = XX[:].y
@@ -346,6 +351,10 @@ print(Metrics_CGPGNN)
 elapsed = time.time() - t
 print('Elapsed: %s' % round(elapsed/60,2), ' minutes')
 print(600*'*')
+
+# New: Display Weights & Biases logging information
+print("Weights & Biases logging is enabled.")
+print("To view Weights & Biases results, visit https://wandb.ai and check your project named 'FINAL_MetrLA_M6_H3' (or 'FINAL_PemsBay_M6_H3_compare' for the PemsBay version).")
 
 
 
