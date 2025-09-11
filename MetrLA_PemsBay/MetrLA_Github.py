@@ -22,7 +22,7 @@ from tsl.engines import Predictor
 os.environ['TORCH'] = torch.__version__
 print(torch.__version__)
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 print(device)
 
 import shutil
@@ -37,10 +37,10 @@ if not os.path.isdir(destination_path):
 shutil.copy2(script_path, destination_path)
 
 #%%
-from Needed_Functions.layers import CITRUS
+from layers import CITRUS
 import networkx as nx
-from Needed_Functions.Utilsss import get_evcs_evals
-from pytorch_lightning.loggers import TensorBoardLogger
+from Utilsss import get_evcs_evals
+from pytorch_lightning.loggers import WandbLogger
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint
 from tsl.data import SpatioTemporalDataset
@@ -164,7 +164,7 @@ dm = SpatioTemporalDataModule(
     batch_size=batch_size,
 )
 
-print(dm)
+# print(dm)
 #%%
 dm.setup()
 print(dm)
@@ -237,7 +237,7 @@ predictor_CGP_GNN = Predictor(
     metrics=metrics,
 # metrics to be logged during train/val/test
 )
-logger_CGP_GNN = TensorBoardLogger(save_dir="FINAL_MetrLA_M6_H3", name="FINAL_MetrLA_M6_H3", version=0)
+logger_CGP_GNN = WandbLogger(project="CITRUS_continuous_graph_product", name="MetrLA", version="0")
 
 checkpoint_callback_CGPGNN = ModelCheckpoint(
     dirpath='FINAL_MetrLA_M6_H3',
@@ -248,8 +248,8 @@ checkpoint_callback_CGPGNN = ModelCheckpoint(
 
 trainer_CGP_GNN = pl.Trainer(max_epochs=n_epochs,
                       logger=logger_CGP_GNN,
-                      accelerator=device,
-                      devices=1, 
+                      accelerator='gpu',
+                      devices=[1], 
 #                      limit_train_batches=train_batches,  # end an epoch after 100 updates
                       callbacks=[checkpoint_callback_CGPGNN],
                       enable_progress_bar=enable_progress_bar)
@@ -311,5 +311,7 @@ parameters_name= [ name for (name, param) in CGP_GNN.named_parameters()]
 elapsed = time.time() - t
 print('Elapsed: %s' % round(elapsed/60,2), ' minutes')
 print(600*'*')
+
+print("To view Weights & Biases results, visit https://wandb.ai and check your project 'FINAL_MetrLA_M6_H3'")
 
 
