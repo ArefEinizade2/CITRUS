@@ -1,0 +1,19 @@
+# Ignore Python bytecode and cache directories
+__pycache__/
+*.py[cod]
+*.so
+*runs*
+MetrLA_PemsBay/MetrLA/
+MetrLA_PemsBay/PemsBay/
+# Ignore data folder
+data/
+FINAL*
+*MetrLA_Results*
+*BayResults*
+wandb/
+MetrLA/
+PemsBay/
+*Results*
+Presentation/
+.vscode/
+*.log

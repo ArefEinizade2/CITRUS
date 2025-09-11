@@ -55,9 +55,9 @@ if not os.path.isdir(destination_path):
 shutil.copy2(script_path, destination_path)
 
 #%%
-from Needed_Functions.layers import CPGNN_ST, CPGNN_ST_v2, CPGNN_ST_v3, CITRUS, SGPModel
+from layers import CPGNN_ST, CPGNN_ST_v2, CPGNN_ST_v3, CITRUS, SGPModel
 import networkx as nx
-from Needed_Functions.Utilsss import get_evcs_evals
+from Utilsss import get_evcs_evals
 from pytorch_lightning.loggers import TensorBoardLogger
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint, ProgressBar
