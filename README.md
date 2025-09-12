@@ -65,6 +65,15 @@ You also need the additional packages listed in the [requirements.txt](./require
 pip install -r requirements.txt
 ```
 
+Or you can also rely on installing the main packages, for example, the current project has been implemented using the following packages:
+
+torchmetrics==1.2.0
+torch==2.1.0+cu118
+tsl==0.9.4
+pytorch-lightning==2.1.2
+torch_geometric==2.4.0
+networkx==3.3
+
 ### Run the Code
 With the requirements installed, the scripts are ready to be run and used. To have a tutorial general demo about how the CITRUS model works, simply run **CITRUS_demo.ipynb** or:
 
