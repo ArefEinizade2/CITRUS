@@ -68,10 +68,15 @@ pip install -r requirements.txt
 Or you can also rely on installing the main packages, for example, the current project has been implemented using the following packages:
 
 torchmetrics==1.2.0
+
 torch==2.1.0+cu118
+
 tsl==0.9.4
+
 pytorch-lightning==2.1.2
+
 torch_geometric==2.4.0
+
 networkx==3.3
 
 ### Run the Code
