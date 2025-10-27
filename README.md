@@ -59,13 +59,7 @@ git clone https://github.com/ArefEinizade2/CITRUS.git
 
 Our code requires Python >= 3.11.5
 
-You also need the additional packages listed in the [requirements.txt](./requirements.txt) file. You can install the requirements using:
-
-```bash
-pip install -r requirements.txt
-```
-
-Or you can also rely on installing the main packages, for example, the current project has been implemented using the following packages:
+You can rely on installing the main packages. For example, the current project has been implemented using the following packages:
 
 ```bash
 torchmetrics==1.2.0
